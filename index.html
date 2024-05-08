@@ -8,6 +8,81 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 </head>
 <body>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #483D8B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slider {
+            width: 80%;
+            margin: auto;
+            position: relative;
+        }
+
+        .slider div {
+            margin: 16px;
+            /* background-color: #6A5ACD; */
+            border: none;
+        }
+
+        .slider img {
+            width: 100%;
+            /* height: 400px; */
+            display: block;
+            background-color: #6A5ACD;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+            object-fit: cover;
+        }
+
+        .slick-prev, .slick-next {
+            color: #fff;
+            z-index: 1000;
+            top: 50%;
+            transform: translateY(-50%) !important; 
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            position: absolute !important; 
+        }
+
+        .slick-prev {
+            left: 10px !important; 
+        }
+
+        .slick-next {
+            right: 10px !important;
+        }
+
+        .slick-prev:before, .slick-next:before {
+            font-size: 20px;
+            color: white;
+            opacity: 1;
+            content: ''; /* Clearing default content */
+        }
+
+        .slick-prev:before {
+            content: '←';
+        }
+
+        .slick-next:before {
+            content: '→'; 
+        }
+
+        .slick-slide {
+            border: none;
+        }
+    </style>
+
     <div class="slider">
         <div><img src="images/hero-1.svg" alt="Image 1"></div>
         <div><img src="images/hero-2.svg" alt="Image 2"></div>
@@ -18,6 +93,24 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="script.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 768,  // Adjusts the number of slides on smaller screens.
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
 </body>
 </html>
